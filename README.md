@@ -1,4 +1,4 @@
-votebracket
-===========
+VoteBracket Backend
+===================
 
-Custom competition brackets driven by user votes
+An elegant backend in Python.
