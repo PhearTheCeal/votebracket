@@ -1,21 +1,26 @@
 from django.db import models
 
+max_opp_len = 200
+
 class Tournament(models.Model):
-    winner = models.ForeignKey('Competitor')
-
-class Match(models.Model):
-    tournament = models.ForeignKey('Tournament')
-    winner = models.ForeignKey('Competitor')
-    leftMatch = models.ForeignKey('self')
-    rightMatch = models.ForeignKey('self')
-    nextMatch = models.ForeignKey('self')
-
-    def __unicode__(self):
-        return leftMatch.text + " VS " + rightMatch.text
-
-class Competitor(models.Model):
-    text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
     
     def __unicode__(self):
-        return self.text;
+        return str(self.id)
+
+class Match(models.Model):
+
+    # Opponent names and their votes
+    opp1 = models.CharField(max_length=max_opp_len)
+    opp2 = models.CharField(max_length=max_opp_len)
+    opp1votes = models.IntegerField(default=0)
+    opp2votes = models.IntegerField(default=0)
+
+    # generation is similar to what an index of a heap would be
+    #               [ gen = 0 ]
+    #   [ gen = 1 ]             [ gen = 2 ]
+    generation = models.IntegerField()
+    winner = models.CharField(max_length=max_opp_len)
+    tournament = models.ForeignKey('Tournament')
+
+    def __unicode__(self):
+        return self.opp1 + " VS " + self.opp2

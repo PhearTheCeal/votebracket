@@ -1,0 +1,9 @@
+{% if match_list %}
+    <ul>
+        {% for match in match_list %}
+            <li>{{match.opp1}} VS {{match.opp2}}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Tournament not found.</p>
+{% endif %}

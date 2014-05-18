@@ -25,7 +25,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-LOCAL_APPS = ()
+LOCAL_APPS = ('bracket',)
 
 DEFAULT_APPS = (
     'django.contrib.admin',
@@ -79,4 +79,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR, "static")
+STATIC_URL = os.path.join(BASE_DIR, "static/")
