@@ -1,0 +1,11 @@
+
+<h1> Create a new poll tournament</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</p></strong>{% endif %}
+
+<form action="new" method="POST">
+    {% csrf_token %}
+    <input type='text' name='options' />
+    <input type='text' name='options' />
+    <input type='text' name='options' />
+</form>
